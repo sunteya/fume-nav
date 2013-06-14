@@ -1,0 +1,6 @@
+.DS_Store
+coverage
+pkg/*
+tmp/*
+gem_graph.png
+Gemfile.lock
