@@ -1,0 +1,1 @@
+require File.expand_path("../fume/nav", __FILE__)
