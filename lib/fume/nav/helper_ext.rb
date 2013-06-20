@@ -1,5 +1,3 @@
-require "hashie"
-
 module Fume
   module Nav
     module HelperExtensions
