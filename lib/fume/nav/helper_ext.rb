@@ -14,7 +14,7 @@ module Fume
 
         return content if !tag.hide?
       end
-      
+
       class NavTag
         attr_accessor :helper, :current, :active_class, :hide_if_empty
 
@@ -28,7 +28,7 @@ module Fume
         def hide?
           hide_if_empty && @empty
         end
-        
+
         def li_tag(value, options = {}, &block)
           self.content_tag(value, :li, options, &block)
         end

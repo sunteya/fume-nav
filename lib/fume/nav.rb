@@ -1,2 +1,4 @@
-require File.expand_path("../nav/helper_ext", __FILE__)
-require File.expand_path("../nav/railtie", __FILE__)
+require "fume/nav/version"
+
+require "fume/nav/helper_ext"
+require "fume/nav/railtie"

@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# Specify your gem's dependencies in fume.gemspec
+# Specify your gem's dependencies in fume-nav.gemspec
 gemspec
