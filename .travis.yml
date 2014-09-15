@@ -2,7 +2,10 @@ script: "bundle exec rake spec"
 rvm:
   - 2.1.0
   - 2.0.0
-  - 1.9.3
+
 gemfile:
   - Gemfile
   - gemfiles/rails3_2.gemfile
+
+before_install:
+  - gem install bundler
