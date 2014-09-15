@@ -13,10 +13,10 @@ RSpec.describe Fume::Nav::NavTag do
       before { expect(context).to receive(:content_tag).with(:li, hash_including(class: "active")) }
       it { subject.li_tag(:foo) }
 
-      # context "current is Regex" do
-      #   let(:current) { /^foo/ }
-      #   it { subject.li_tag(:foo) }
-      # end
+      context "value is Regexp" do
+        let(:current) { :foo }
+        it { subject.li_tag(/^foo/) }
+      end
     end
 
     context "then not match" do

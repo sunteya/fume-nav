@@ -19,7 +19,14 @@ module Fume
       end
 
       def content_tag(value, tag_name, options = {}, &block)
-        if value == current
+        match = case value
+                when Regexp
+                  value.match(current)
+                else
+                  value.to_s == current.to_s
+                end
+
+        if match
           if options[:class]
             options[:class] += " #{active_class}"
           else
