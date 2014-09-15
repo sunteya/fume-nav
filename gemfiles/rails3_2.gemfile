@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem "rails", "~> 3.2.0"
+
+# Specify your gem's dependencies in rspec-do_action.gemspec
+gemspec path: '..'

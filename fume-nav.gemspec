@@ -1,25 +1,28 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'fume/nav/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "fume-nav"
-  spec.version       = File.read(File.expand_path("../VERSION", __FILE__)).chomp
+  spec.version       = Fume::Nav::VERSION
   spec.authors       = ["sunteya"]
   spec.email         = ["sunteya@gmail.com"]
-  spec.description   = %q{help build navigation for rails.}
   spec.summary       = %q{help build navigation for rails.}
+  spec.description   = %q{help build navigation for rails.}
   spec.homepage      = "https://github.com/sunteya/fume-nav"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "railties"
-  
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "version"
+  spec.add_dependency "rails"
+
+  spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_development_dependency "rake", "~> 10.0"
+
+  spec.add_development_dependency "rspec", "~> 3.1.0"
+  spec.add_development_dependency "pry-byebug"
 end
