@@ -19,6 +19,11 @@ module Fume
       end
 
       def content_tag(value, tag_name, options = {}, &block)
+        apply_active_options(value, options)
+        helper.content_tag(tag_name, options, &block)
+      end
+
+      def apply_active_options(value, options)
         match = case value
                 when Regexp
                   value.match(current)
@@ -35,7 +40,6 @@ module Fume
         end
 
         @empty = false
-        helper.content_tag(tag_name, options, &block)
       end
     end
   end

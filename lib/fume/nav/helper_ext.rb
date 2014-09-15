@@ -2,7 +2,7 @@ require "fume/nav/nav_tag"
 
 module Fume
   module Nav
-    module HelperExtensions
+    module HelperExt
       def fume_nav(*args, &block)
         attributes = {
           active_class: "active",
