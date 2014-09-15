@@ -1,5 +1,7 @@
 # Fume::Nav
 
+[![Build Status](https://travis-ci.org/sunteya/fume-nav.svg?branch=master)](https://travis-ci.org/sunteya/fume-nav)
+
 help build navigation for rails.
 
 ## Installation
