@@ -24,4 +24,9 @@ RSpec.describe Fume::Nav::NavTag do
       it { subject.li_tag(:not_match) }
     end
   end
+
+  describe "#link_to" do
+    before { expect(context).to receive(:link_to).with("TEXT", [:root], hash_excluding(class: "active")) }
+    it { subject.link_to :foo, "TEXT", [:root] }
+  end
 end

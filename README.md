@@ -19,23 +19,32 @@ gem 'fume-nav'
 
 view.erb
 
-~~~~ erb
+```rb
 <% @current = :edit %>
 <%= fume_nav @current do |n| %>
 <ul>
-	<%= n.li_tag :show do %>
-		<%= link_to 'show', link_path(@link) %>
-	<% end %>
-	<%= n.li_tag :edit do %>
-		<%= link_to 'edit', edit_link_path(@link) %>
-	<% end %>
+  <%= n.li_tag :show do %>
+    <%= link_to 'show', link_path(@link) %>
+  <% end %>
+  <%= n.li_tag :edit do %>
+    <%= link_to 'edit', edit_link_path(@link) %>
+  <% end %>
 </ul>
 <% end %>
-~~~~
+
+<%= fume_nav @current do |n| %>
+  <div class="dropdown">
+    <%= n.link_to :show, "link_1", root_path, class: "link" %>
+    <%= n.apply :edit do |cls| %>
+      <%= link_to "link_2", root_path, class: "link #{cls}" %>
+    <% end %>
+  </div>
+<% end %>
+```
 
 output:
 
-~~~~ html
+```html
 <ul>
 	<li>
 		<a href="/links/1">show</a>
@@ -44,15 +53,20 @@ output:
 		<a href="/links/1/edit">edit</a>
 	</li>
 </ul>
-~~~~
+
+<div class="dropdown">
+  <a class="link active" href="/">link_1</a>
+  <a class="link " href="/">link_2</a>
+</div>
+```
 
 ### Options
 
-~~~ erb
+```erb
 <%= fume_nav(current_value, options) do |n| %>
 	// OOXX
 <% end %>
-~~~
+```
 
 OPTIONS:
 <table>
