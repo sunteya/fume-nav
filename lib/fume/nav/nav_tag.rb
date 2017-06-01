@@ -30,7 +30,7 @@ module Fume
       end
 
       def apply_active_options(value, options)
-        match?(value) do |cls|
+        apply(value) do |cls|
           if options[:class]
             options[:class] += " #{cls}"
           else
@@ -41,7 +41,7 @@ module Fume
         @empty = false
       end
 
-      def match?(value, &block)
+      def apply(value, &block)
         result = case value
         when Regexp
           value.match(current)
