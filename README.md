@@ -46,12 +46,12 @@ output:
 
 ```html
 <ul>
-	<li>
-		<a href="/links/1">show</a>
-	</li>
-	<li class="active">
-		<a href="/links/1/edit">edit</a>
-	</li>
+  <li>
+    <a href="/links/1">show</a>
+  </li>
+  <li class="active">
+    <a href="/links/1/edit">edit</a>
+  </li>
 </ul>
 
 <div class="dropdown">
@@ -64,18 +64,18 @@ output:
 
 ```erb
 <%= fume_nav(current_value, options) do |n| %>
-	// OOXX
+  // OOXX
 <% end %>
 ```
 
 OPTIONS:
 <table>
-	<tr>
-		<td>active_class</td><td>the current active item class, default: 'active'</td>
-	</tr>
-	<tr>
-		<td>hide_if_empty</td><td>don't output content html if not exist any subitem, default: true</td>
-	</tr>
+  <tr>
+    <td>active_class</td><td>the current active item class, default: 'active'</td>
+  </tr>
+  <tr>
+    <td>hide_if_empty</td><td>don't output content html if not exist any subitem, default: true</td>
+  </tr>
 </table>
 
 
