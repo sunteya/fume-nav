@@ -30,24 +30,27 @@ module Fume
       end
 
       def apply_active_options(value, options)
-        if match?(value)
+        match?(value) do |cls|
           if options[:class]
-            options[:class] += " #{active_class}"
+            options[:class] += " #{cls}"
           else
-            options[:class] = "#{active_class}"
+            options[:class] = "#{cls}"
           end
         end
 
         @empty = false
       end
 
-      def match?(value)
-        case value
+      def match?(value, &block)
+        result = case value
         when Regexp
           value.match(current)
         else
           value.to_s == current.to_s
         end
+
+        block.call(active_class) if result && block
+        result
       end
     end
   end
