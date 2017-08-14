@@ -38,10 +38,11 @@ module Fume
           end
         end
 
-        @empty = false
       end
 
       def apply(value, &block)
+        @empty = false
+
         result = case value
         when Regexp
           value.match(current)
