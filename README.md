@@ -35,8 +35,8 @@ view.erb
 <%= fume_nav @current do |n| %>
   <div class="dropdown">
     <%= n.link_to :show, "link_1", root_path, class: "link" %>
-    <%= n.apply :edit do |cls| %>
-      <%= link_to "link_2", root_path, class: "link #{cls}" %>
+    <%= n.apply_content :edit do |active_class| %>
+      <%= link_to "link_2", root_path, class: "link #{active_class || 'default'}" %>
     <% end %>
   </div>
 <% end %>

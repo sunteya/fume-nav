@@ -29,4 +29,17 @@ RSpec.describe Fume::Nav::NavTag do
     before { expect(context).to receive(:link_to).with("TEXT", [:root], hash_excluding(class: "active")) }
     it { subject.link_to :foo, "TEXT", [:root] }
   end
+
+  describe "#apply_content" do
+    context "then match" do
+      let(:current) { :foo }
+      before { expect(context).to receive(:capture).with("active") }
+      it { subject.apply_content(:foo) { |cls| } }
+    end
+
+    context "then not match" do
+      before { expect(context).to receive(:capture).with(nil) }
+      it { subject.apply_content(:foo) { |cls| } }
+    end
+  end
 end

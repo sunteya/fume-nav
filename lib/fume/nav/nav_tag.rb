@@ -38,11 +38,10 @@ module Fume
           end
         end
 
+        @empty = false
       end
 
       def apply(value, &block)
-        @empty = false
-
         result = case value
         when Regexp
           value.match(current)
@@ -50,8 +49,15 @@ module Fume
           value.to_s == current.to_s
         end
 
-        block.call(active_class) if result && block
-        result
+        block.call(result ? active_class : nil)
+      end
+
+      def apply_content(value, &block)
+        @empty = false
+
+        apply(value) do |cls|
+          helper.capture(cls, &block)
+        end
       end
     end
   end
