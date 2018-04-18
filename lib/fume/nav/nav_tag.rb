@@ -41,14 +41,19 @@ module Fume
         @empty = false
       end
 
-      def apply(value, &block)
-        result = case value
+      def match?(source, target)
+        case source
+        when Array
+          source.each_with_index.all? { |value, index| match?(value, target[index]) }
         when Regexp
-          value.match(current)
+          source.match(target)
         else
-          value.to_s == current.to_s
+          source.to_s == target.to_s
         end
+      end
 
+      def apply(value, &block)
+        result = match?(value, current)
         block.call(result ? active_class : nil)
       end
 

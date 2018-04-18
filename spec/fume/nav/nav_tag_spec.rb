@@ -17,6 +17,11 @@ RSpec.describe Fume::Nav::NavTag do
         let(:current) { :foo }
         it { subject.li_tag(/^foo/) }
       end
+
+      context "value is Array" do
+        let(:current) { [ :foo, 123 ] }
+        it { subject.li_tag([ :foo, "123" ]) }
+      end
     end
 
     context "then not match" do
