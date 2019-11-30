@@ -40,6 +40,13 @@ view.erb
     <% end %>
   </div>
 <% end %>
+
+<%= fume_nav @current, active_class: "text-primary", inactive_class: "text-muted" do |n| %>
+  <div>
+    <%= n.link_to :show, "link_1", root_path %>
+    <%= n.link_to :edit, "link_2", root_path %>
+  </div>
+<% end %>
 ```
 
 output:
@@ -57,6 +64,11 @@ output:
 <div class="dropdown">
   <a class="link active" href="/">link_1</a>
   <a class="link " href="/">link_2</a>
+</div>
+
+<div>
+  <a class="text-primary" href="/">link_1</a>
+  <a class="text-muted" href="/">link_2</a>
 </div>
 ```
 

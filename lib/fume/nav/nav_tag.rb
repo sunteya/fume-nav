@@ -1,7 +1,7 @@
 module Fume
   module Nav
     class NavTag
-      attr_accessor :helper, :current, :active_class, :hide_if_empty
+      attr_accessor :helper, :current, :active_class, :inactive_class, :hide_if_empty
 
       def initialize(attributes = {})
         attributes.each_pair do |name, value|
@@ -54,7 +54,7 @@ module Fume
 
       def apply(value, &block)
         result = match?(value, current)
-        block.call(result ? active_class : nil)
+        block.call(result ? active_class : inactive_class)
       end
 
       def apply_content(value, &block)

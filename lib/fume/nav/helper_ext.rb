@@ -6,6 +6,7 @@ module Fume
       def fume_nav(*args, &block)
         attributes = {
           active_class: "active",
+          inactive_class: nil,
           hide_if_empty: true
         }.merge(args.extract_options!)
 

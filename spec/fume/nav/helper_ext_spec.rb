@@ -24,5 +24,10 @@ RSpec.describe Fume::Nav::HelperExt do
       subject { view.fume_nav(current, hide_if_empty: false) { |n| "show" } }
       it { is_expected.to eq "show" }
     end
+
+    context "then inactive_class is set" do
+      subject { view.fume_nav(current, inactive_class: "text-muted") { |n| n.li_tag(:bar) { "bar" } } }
+      it { is_expected.to include('<li class="text-muted">bar</li>') }
+    end
   end
 end
